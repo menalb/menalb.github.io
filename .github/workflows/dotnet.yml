@@ -30,6 +30,10 @@ jobs:
     - name: Publish .NET Core Project
       run: dotnet publish menalb-website.csproj -c Release -o release --nologo
     
+    # changes the base-tag in index.html from '/' to 'menalb-website' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to menalb-website
+      run: sed -i 's/<base href="\/" \/>/<base href="\/menalb.github.io\/" \/>/g' release/wwwroot/index.html
+      
     - name: Commit wwwroot to GitHub pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
