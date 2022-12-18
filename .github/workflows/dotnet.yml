@@ -31,8 +31,8 @@ jobs:
       run: dotnet publish menalb-website.csproj -c Release -o release --nologo
     
     # changes the base-tag in index.html from '/' to 'menalb-website' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to menalb-website
-      run: sed -i 's/<base href="\/" \/>/<base href="\/menalb.github.io\/" \/>/g' release/wwwroot/index.html
+    # - name: Change base-tag in index.html from / to menalb-website
+    #  run: sed -i 's/<base href="\/" \/>/<base href="\/menalb.github.io\/" \/>/g' release/wwwroot/index.html
       
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
